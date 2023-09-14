@@ -15,3 +15,17 @@ extract_answer_from_response
  of your ideas now. We'll talk about ways to test other aspects of this program in class.
 
 """
+import requests
+import unittest
+from unittest import TestCase
+from functions_magic import generate_url_for_question, extract_answer_from_response
+
+class Test8Ball(TestCase):
+    def test_generate_url_for_question(self):
+        question = 'Will I live to be 100?'
+        expected_url = 'https://magic-8-ball-mctc.uc.r.appspot.com/magic/JSON/' + question
+        actual_url = generate_url_for_question('Will I live to be 100?')
+        self.assertEqual(expected_url, actual_url)
+
+if __name__ == '__main__':
+    unittest.main()
